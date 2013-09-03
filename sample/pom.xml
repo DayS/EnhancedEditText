@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -13,6 +14,11 @@
     <packaging>apk</packaging>
     <name>EnhancedEditText</name>
 
+    <properties>
+        <androidannotations.version>2.7.1</androidannotations.version>
+        <actionbarsherlock.version>4.3.1</actionbarsherlock.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>android</groupId>
@@ -20,17 +26,37 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Iconify -->
-        <dependency>
-            <groupId>com.joanzapata.android</groupId>
-            <artifactId>android-iconify</artifactId>
-        </dependency>
-
         <dependency>
             <groupId>fr.dvilleneuve.android</groupId>
             <artifactId>enhanced-edittext</artifactId>
             <version>${project.version}</version>
             <type>apklib</type>
+        </dependency>
+
+        <dependency>
+            <groupId>com.actionbarsherlock</groupId>
+            <artifactId>actionbarsherlock</artifactId>
+            <version>${actionbarsherlock.version}</version>
+            <type>apklib</type>
+        </dependency>
+
+        <!-- Android Annotations -->
+        <dependency>
+            <groupId>com.googlecode.androidannotations</groupId>
+            <artifactId>androidannotations</artifactId>
+            <version>${androidannotations.version}</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.googlecode.androidannotations</groupId>
+            <artifactId>androidannotations-api</artifactId>
+            <version>${androidannotations.version}</version>
+        </dependency>
+
+        <!-- Iconify -->
+        <dependency>
+            <groupId>com.joanzapata.android</groupId>
+            <artifactId>android-iconify</artifactId>
         </dependency>
     </dependencies>
 

@@ -4,4 +4,8 @@
     <string name="app_name">EnhancedEditText Sample</string>
     <string name="activity_main_title">EnhancedEditText Sample</string>
 
+    <string name="activity_main_edittext1_suffix">km/h</string>
+    <string name="activity_main_edittext2_prefix">Speed</string>
+    <string name="activity_main_edittext2_suffix">km/h</string>
+
 </resources>

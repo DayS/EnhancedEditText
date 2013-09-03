@@ -51,11 +51,13 @@ public class EnhancedEditText extends EditText {
 	void init() {
 		setCompoundDrawablePadding(16);
 
-		if (prefixIcon != null) {
-			setPrefixIcon(Iconify.IconValue.valueOf(prefixIcon));
-		}
-		if (suffixIcon != null) {
-			setSuffixIcon(Iconify.IconValue.valueOf(suffixIcon));
+		if (!isInEditMode()) {
+			if (prefixIcon != null) {
+				setPrefixIcon(Iconify.IconValue.valueOf(prefixIcon));
+			}
+			if (suffixIcon != null) {
+				setSuffixIcon(Iconify.IconValue.valueOf(suffixIcon));
+			}
 		}
 		setPrefixText(prefixText);
 		setSuffixText(suffixText);

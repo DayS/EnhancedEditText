@@ -1,12 +1,29 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#F2F2F2"
-                android:padding="10dp">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:dvilleneuve="http://schemas.android.com/apk/res/fr.dvilleneuve.android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:padding="10dp">
 
-    <EnhancedEditText
-        android:id="@+id/editText1"
+    <android.widget.EnhancedEditText
+        android:id="@+id/edittext1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        dvilleneuve:prefixIcon="icon_dashboard"
+        android:hint="90"
+        dvilleneuve:suffixText="@string/activity_main_edittext1_suffix"/>
+
+    <android.widget.EnhancedEditText
+        android:id="@+id/edittext2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="90"
+        dvilleneuve:prefixText="@string/activity_main_edittext2_prefix"
+        dvilleneuve:suffixText="@string/activity_main_edittext2_suffix"/>
+
+    <android.widget.EnhancedEditText
+        android:id="@+id/edittext3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
-</RelativeLayout>
+</LinearLayout>
