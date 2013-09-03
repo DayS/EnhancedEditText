@@ -12,6 +12,7 @@
 
     <modules>
         <module>enhanced-edittext</module>
+        <module>sample</module>
     </modules>
 
     <developers>
