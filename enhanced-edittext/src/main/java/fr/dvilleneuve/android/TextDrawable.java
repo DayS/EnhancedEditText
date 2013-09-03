@@ -117,9 +117,7 @@ public class TextDrawable extends Drawable {
 	 * @return The current TextDrawable for chaining.
 	 */
 	public TextDrawable colorRes(int colorRes) {
-		paint.setColor(context.getResources().getColor(colorRes));
-		invalidateSelf();
-		return this;
+		return color(context.getResources().getColor(colorRes));
 	}
 
 	/**

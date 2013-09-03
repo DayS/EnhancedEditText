@@ -2,10 +2,12 @@
 <resources>
 
     <declare-styleable name="EnhancedEditText">
-        <attr name="prefixIcon" format="string"/>
-        <attr name="prefixText" format="reference|string" localization="suggested"/>
-        <attr name="suffixIcon" format="string"/>
-        <attr name="suffixText" format="reference|string" localization="suggested"/>
+        <attr format="string" name="prefixIcon"/>
+        <attr format="reference|string" localization="suggested" name="prefixText"/>
+        <attr format="reference|color" name="prefixColor"/>
+        <attr format="string" name="suffixIcon"/>
+        <attr format="reference|string" localization="suggested" name="suffixText"/>
+        <attr format="reference|color" name="suffixColor"/>
     </declare-styleable>
 
 </resources>

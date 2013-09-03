@@ -7,5 +7,8 @@
     <string name="activity_main_edittext1_suffix">km/h</string>
     <string name="activity_main_edittext2_prefix">Speed</string>
     <string name="activity_main_edittext2_suffix">km/h</string>
+    <string name="activity_main_edittext3_prefix">Name</string>
+
+    <string name="activity_button_toggleDrawables">Toggle drawables</string>
 
 </resources>
