@@ -44,7 +44,7 @@ public class EnhancedEditText extends EditText {
 		prefixIcon = attr.getString(R.styleable.EnhancedEditText_prefixIcon);
 		prefixText = attr.getString(R.styleable.EnhancedEditText_prefixText);
 		suffixIcon = attr.getString(R.styleable.EnhancedEditText_suffixIcon);
-		suffixText = attr.getString(R.styleable.EnhancedEditText_SuffixText);
+		suffixText = attr.getString(R.styleable.EnhancedEditText_suffixText);
 		attr.recycle();
 	}
 
