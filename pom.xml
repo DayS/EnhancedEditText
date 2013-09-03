@@ -3,10 +3,16 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>fr.dvilleneuve.android</groupId>
-    <artifactId>enhanced-edittext</artifactId>
+    <artifactId>enhanced-edittext-parent</artifactId>
     <version>1.1-SNAPSHOT</version>
-    <packaging>apklib</packaging>
-    <name>EnhancedEditText</name>
+    <packaging>pom</packaging>
+
+    <name>EnhancedEditText-parent</name>
+    <description>An enhanced Android EditText</description>
+
+    <modules>
+        <module>enhanced-edittext</module>
+    </modules>
 
     <developers>
         <developer>
@@ -44,46 +50,53 @@
         <maven-release-plugin.version>2.3.1</maven-release-plugin.version>
     </properties>
 
-    <dependencies>
-        <dependency>
-            <groupId>android</groupId>
-            <artifactId>android</artifactId>
-            <version>${android.version}</version>
-            <scope>provided</scope>
-        </dependency>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>android</groupId>
+                <artifactId>android</artifactId>
+                <version>${android.version}</version>
+                <scope>provided</scope>
+            </dependency>
 
-        <!-- Iconify -->
-        <dependency>
-            <groupId>com.joanzapata.android</groupId>
-            <artifactId>android-iconify</artifactId>
-            <version>${iconify.version}</version>
-        </dependency>
-    </dependencies>
+            <!-- Iconify -->
+            <dependency>
+                <groupId>com.joanzapata.android</groupId>
+                <artifactId>android-iconify</artifactId>
+                <version>${iconify.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>2.3.2</version>
+                    <configuration>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
+                        <encoding>${project.build.sourceEncoding}</encoding>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>com.jayway.maven.plugins.android.generation2</groupId>
+                    <artifactId>android-maven-plugin</artifactId>
+                    <version>${android-maven.version}</version>
+                    <configuration>
+                        <sdk>
+                            <platform>${android.platform}</platform>
+                        </sdk>
+                        <undeployBeforeDeploy>true</undeployBeforeDeploy>
+                    </configuration>
+                    <extensions>true</extensions>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+        
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.3.2</version>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>com.jayway.maven.plugins.android.generation2</groupId>
-                <artifactId>android-maven-plugin</artifactId>
-                <version>${android-maven.version}</version>
-                <configuration>
-                    <sdk>
-                        <platform>${android.platform}</platform>
-                    </sdk>
-                    <undeployBeforeDeploy>true</undeployBeforeDeploy>
-                </configuration>
-                <extensions>true</extensions>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
