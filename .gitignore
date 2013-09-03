@@ -1,0 +1,44 @@
+# OS junk files
+.DS_Store
+[Tt]humbs.db
+
+# Temp files
+*~
+
+#Android generated
+bin
+gen
+lint.xml
+
+#Eclipse
+.project
+.classpath
+.settings
+.checkstyle
+.apt_generated
+
+#IntelliJ IDEA
+.idea
+*.iml
+*.ipr
+*.iws
+classes
+out
+gen-external-apklibs
+
+#Maven
+target
+release.properties
+pom.xml.*
+
+#Gradle
+.gradle
+build
+
+#Ant
+build.xml
+ant.properties
+local.properties
+proguard.cfg
+proguard-project.txt
+
