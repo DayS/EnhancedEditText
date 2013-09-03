@@ -1,13 +1,14 @@
-package fr.dvilleneuve.android;
+package android.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.widget.EditText;
 import com.joanzapata.android.iconify.IconDrawable;
 import com.joanzapata.android.iconify.Iconify;
+import fr.dvilleneuve.android.R;
+import fr.dvilleneuve.android.TextDrawable;
 
 public class EnhancedEditText extends EditText {
 
