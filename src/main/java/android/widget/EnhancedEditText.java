@@ -1,6 +1,7 @@
 package android.widget;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -60,37 +61,72 @@ public class EnhancedEditText extends EditText {
 		setSuffixText(suffixText);
 	}
 
+	@Override
+	public void setTextSize(int unit, float size) {
+		super.setTextSize(unit, size);
+		updateTextSize();
+	}
+
+	@Override
+	public void setTextColor(int color) {
+		super.setTextColor(color);
+		updateTextColor();
+	}
+
+	@Override
+	public void setTextColor(ColorStateList colors) {
+		super.setTextColor(colors);
+		updateTextColor();
+	}
+
 	public void setPrefixIcon(Iconify.IconValue iconValue) {
 		if (iconValue != null) {
 			prefixIconDrawable = new IconDrawable(getContext(), iconValue).sizePx((int) getTextSize()).color(Color.GRAY);
-			updateDrawables();
+			updateCompoundDrawables();
 		}
 	}
 
 	public void setPrefixText(String unitTextPrefix) {
-		if (unitTextPrefix != null) {
+		if (unitTextPrefix != null && !unitTextPrefix.isEmpty()) {
 			prefixTextDrawable = new TextDrawable(getContext(), unitTextPrefix).sizePx(getTextSize()).color(Color.GRAY).typeface(getTypeface());
-			updateDrawables();
+			updateCompoundDrawables();
 		}
 	}
 
 	public void setSuffixIcon(Iconify.IconValue iconValue) {
 		if (iconValue != null) {
 			suffixIconDrawable = new IconDrawable(getContext(), iconValue).sizePx((int) getTextSize()).color(Color.GRAY);
-			updateDrawables();
+			updateCompoundDrawables();
 		}
 	}
 
 	public void setSuffixText(String unitTextSuffix) {
-		if (unitTextSuffix != null) {
+		if (unitTextSuffix != null && !unitTextSuffix.isEmpty()) {
 			suffixTextDrawable = new TextDrawable(getContext(), unitTextSuffix).sizePx(getTextSize()).color(Color.GRAY).typeface(getTypeface());
-			updateDrawables();
+			updateCompoundDrawables();
 		}
 	}
 
-	private void updateDrawables() {
+	private void updateCompoundDrawables() {
 		Drawable leftDrawable = prefixIconDrawable != null ? prefixIconDrawable : prefixTextDrawable;
-		setCompoundDrawablesWithIntrinsicBounds(leftDrawable, null, suffixTextDrawable, null);
+		Drawable rightDrawable = suffixIconDrawable != null ? suffixIconDrawable : suffixTextDrawable;
+		setCompoundDrawablesWithIntrinsicBounds(leftDrawable, null, rightDrawable, null);
+	}
+
+	private void updateTextSize() {
+		float textSize = getTextSize();
+		if (prefixIconDrawable != null) prefixIconDrawable.sizePx((int) textSize);
+		if (prefixTextDrawable != null) prefixTextDrawable.sizePx((int) textSize);
+		if (suffixIconDrawable != null) suffixIconDrawable.sizePx((int) textSize);
+		if (suffixTextDrawable != null) suffixTextDrawable.sizePx((int) textSize);
+	}
+
+	private void updateTextColor() {
+		int textColor = getCurrentTextColor();
+		if (prefixIconDrawable != null) prefixIconDrawable.color(textColor);
+		if (prefixTextDrawable != null) prefixTextDrawable.color(textColor);
+		if (suffixIconDrawable != null) suffixIconDrawable.color(textColor);
+		if (suffixTextDrawable != null) suffixTextDrawable.color(textColor);
 	}
 
 }
