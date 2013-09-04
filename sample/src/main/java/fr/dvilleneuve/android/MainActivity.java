@@ -26,8 +26,15 @@ public class MainActivity extends Activity {
 
 	@Click
 	void buttonToggleDrawablesClicked() {
-		edittext3.setPrefixText(edittext3.getPrefixDrawable() == null ? R.string.activity_main_edittext3_prefix : null);
-		edittext3.setSuffixIcon(edittext3.getSuffixDrawable() == null ? Iconify.IconValue.icon_circle_arrow_right : null);
+		if (edittext3.getPrefixDrawable() == null)
+			edittext3.setPrefixTextRes(R.string.activity_main_edittext3_prefix);
+		else
+			edittext3.setPrefixText(null);
+
+		if (edittext3.getSuffixDrawable() == null)
+			edittext3.setSuffixIcon(Iconify.IconValue.icon_circle_arrow_right);
+		else
+			edittext3.setSuffixIcon(null);
 	}
 
 }

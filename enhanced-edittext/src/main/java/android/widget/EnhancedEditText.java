@@ -3,17 +3,12 @@ package android.widget;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.content.res.TypedArray;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.util.Log;
 import com.joanzapata.android.iconify.IconDrawable;
 import com.joanzapata.android.iconify.Iconify;
 import fr.dvilleneuve.android.R;
 import fr.dvilleneuve.android.TextDrawable;
-
-import java.util.Collection;
-import java.util.Collections;
 
 public class EnhancedEditText extends EditText {
 
@@ -97,13 +92,22 @@ public class EnhancedEditText extends EditText {
 		updateCompoundDrawables();
 	}
 
-	public void setPrefixText(int prefix) {
-		setPrefixText(getContext().getString(prefix));
-	}
-
 	public void setPrefixText(String prefix) {
 		prefixTextDrawable = getTextDrawable(prefix, prefixColors);
 		updateCompoundDrawables();
+	}
+
+	public void setPrefixTextRes(int prefix) {
+		setPrefixText(getContext().getString(prefix));
+	}
+
+	public void setPrefixColors(ColorStateList prefixColors) {
+		this.prefixColors = prefixColors;
+		updateTextColor();
+	}
+
+	public void setPrefixColors(int prefixColorsRes) {
+		setPrefixColors(getContext().getResources().getColorStateList(prefixColorsRes));
 	}
 
 	public void setPrefixColor(int prefixColor) {
@@ -111,16 +115,7 @@ public class EnhancedEditText extends EditText {
 	}
 
 	public void setPrefixColorRes(int prefixColorRes) {
-		setPrefixColors(ColorStateList.valueOf(getContext().getResources().getColor(prefixColorRes)));
-	}
-
-	public void setPrefixColors(int prefixColorsRes) {
-		setPrefixColors(getContext().getResources().getColorStateList(prefixColorsRes));
-	}
-
-	public void setPrefixColors(ColorStateList prefixColors) {
-		this.prefixColors = prefixColors;
-		updateTextColor();
+		setPrefixColorRes(getContext().getResources().getColor(prefixColorRes));
 	}
 
 	public Drawable getSuffixDrawable() {
@@ -132,13 +127,22 @@ public class EnhancedEditText extends EditText {
 		updateCompoundDrawables();
 	}
 
-	public void setSuffixText(int suffixRes) {
-		setSuffixText(getContext().getString(suffixRes));
-	}
-
 	public void setSuffixText(String suffix) {
 		suffixTextDrawable = getTextDrawable(suffix, suffixColors);
 		updateCompoundDrawables();
+	}
+
+	public void setSuffixTextRes(int suffixRes) {
+		setSuffixText(getContext().getString(suffixRes));
+	}
+
+	public void setSuffixColors(ColorStateList suffixColors) {
+		this.suffixColors = suffixColors;
+		updateTextColor();
+	}
+
+	public void setSuffixColors(int suffixColorsRes) {
+		setSuffixColors(getContext().getResources().getColorStateList(suffixColorsRes));
 	}
 
 	public void setSuffixColor(int suffixColor) {
@@ -146,16 +150,7 @@ public class EnhancedEditText extends EditText {
 	}
 
 	public void setSuffixColorRes(int suffixColorRes) {
-		setSuffixColors(ColorStateList.valueOf(getContext().getResources().getColor(suffixColorRes)));
-	}
-
-	public void setSuffixColors(int suffixColorsRes) {
-		setSuffixColors(getContext().getResources().getColorStateList(suffixColorsRes));
-	}
-
-	public void setSuffixColors(ColorStateList suffixColors) {
-		this.suffixColors = suffixColors;
-		updateTextColor();
+		setSuffixColor(getContext().getResources().getColor(suffixColorRes));
 	}
 
 	private IconDrawable getIconDrawable(Iconify.IconValue iconValue, ColorStateList colors) {
