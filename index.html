@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Enhancededittext by DayS</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Enhancededittext</h1>
+        <p>An enhanced Android EditText</p>
+
+        <p class="view"><a href="https://github.com/DayS/EnhancedEditText">View the Project on GitHub <small>DayS/EnhancedEditText</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/DayS/EnhancedEditText/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/DayS/EnhancedEditText/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/DayS/EnhancedEditText">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p><img src="https://raw.github.com/DayS/EnhancedEditText/master/header.png" alt="Alt"></p>
+
+<p><strong>EnhancedEditText</strong> allows you to simply add <a href="https://github.com/JoanZapata/android-iconify">Iconify</a> or text on each end of an EditText. It's awesome to get ride of TextView aligned with the component to say what's the purpose of the field, or to show value unit.</p>
+
+<h1>
+<a name="get-started" class="anchor" href="#get-started"><span class="octicon octicon-link"></span></a>Get started</h1>
+
+<p>You just have to add the namespace to be able to use custom attributes, and configure it like this :</p>
+
+<div class="highlight"><pre><span class="nt">&lt;RelativeLayout</span> <span class="na">xmlns:android=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+                <span class="na">xmlns:custom=</span><span class="s">"http://schemas.android.com/apk/res/fr.dvilleneuve.android"</span> <span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;EnhancedEditText</span>
+        <span class="na">android:layout_height=</span><span class="s">"wrap_content"</span>
+        <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+        <span class="na">custom:prefixIcon=</span><span class="s">"icon_dashboard"</span>
+        <span class="na">custom:suffixText=</span><span class="s">"km/h"</span><span class="nt">/&gt;</span>
+
+<span class="nt">&lt;/RelativeLayout&gt;</span>
+</pre></div>
+
+<h1>
+<a name="get-it" class="anchor" href="#get-it"><span class="octicon octicon-link"></span></a>Get it</h1>
+
+<p>Download the sources, compile and add the following dependency to your project</p>
+
+<div class="highlight"><pre><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>fr.dvilleneuve.android<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>enhanced-edittext<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</pre></div>
+
+<h1>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h1>
+
+<pre><code>Copyright 2013 Damien Villeneuve
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+It uses Iconify by Joan Zapata, licensed under Apache License version 2, which is compatible
+with this library's license.
+</code></pre>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/DayS">DayS</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-41418197-2");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
