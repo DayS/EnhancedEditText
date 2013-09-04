@@ -19,9 +19,7 @@
 package fr.dvilleneuve.android;
 
 import android.app.Activity;
-import android.content.res.ColorStateList;
 import android.graphics.Color;
-import android.util.Log;
 import android.widget.EnhancedEditText;
 import com.googlecode.androidannotations.annotations.AfterViews;
 import com.googlecode.androidannotations.annotations.Click;

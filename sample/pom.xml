@@ -12,7 +12,7 @@
 
     <artifactId>enhanced-edittext-sample</artifactId>
     <packaging>apk</packaging>
-    <name>EnhancedEditText</name>
+    <name>EnhancedEditText Sample</name>
 
     <properties>
         <androidannotations.version>2.7.1</androidannotations.version>
@@ -51,12 +51,6 @@
             <groupId>com.googlecode.androidannotations</groupId>
             <artifactId>androidannotations-api</artifactId>
             <version>${androidannotations.version}</version>
-        </dependency>
-
-        <!-- Iconify -->
-        <dependency>
-            <groupId>com.joanzapata.android</groupId>
-            <artifactId>android-iconify</artifactId>
         </dependency>
     </dependencies>
 
