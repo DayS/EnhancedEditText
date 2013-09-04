@@ -19,13 +19,13 @@
 
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:dvilleneuve="http://schemas.android.com/apk/res/fr.dvilleneuve.android"
+              xmlns:dvilleneuve="http://schemas.android.com/apk/res-auto"
               android:layout_height="match_parent"
               android:layout_width="match_parent"
               android:orientation="vertical"
               android:padding="10dp">
 
-    <android.widget.EnhancedEditText
+    <EnhancedEditText
         android:hint="90"
         android:id="@+id/edittext1"
         android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
         dvilleneuve:prefixIcon="icon_dashboard"
         dvilleneuve:suffixText="@string/activity_main_edittext1_suffix"/>
 
-    <android.widget.EnhancedEditText
+    <EnhancedEditText
         android:hint="90"
         android:id="@+id/edittext2"
         android:layout_height="wrap_content"
@@ -42,7 +42,7 @@
         dvilleneuve:prefixText="@string/activity_main_edittext2_prefix"
         dvilleneuve:suffixText="@string/activity_main_edittext2_suffix"/>
 
-    <android.widget.EnhancedEditText
+    <EnhancedEditText
         android:id="@+id/edittext3"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"/>

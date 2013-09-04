@@ -16,7 +16,7 @@
  * It uses Iconify by Joan Zapata, licensed under Apache License version 2, which is compatible
  * with this library's license.
  */
-package fr.dvilleneuve.android;
+package fr.dvilleneuve.android.sample;
 
 import android.app.Activity;
 import android.graphics.Color;

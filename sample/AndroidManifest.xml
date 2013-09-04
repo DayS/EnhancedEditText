@@ -20,7 +20,7 @@
 
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="fr.dvilleneuve.android"
+          package="fr.dvilleneuve.android.sample"
           android:versionCode="1"
           android:versionName="1.0">
 
