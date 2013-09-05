@@ -20,6 +20,7 @@ package android.widget;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
@@ -48,18 +49,18 @@ public class EnhancedEditText extends EditText {
 
 	public EnhancedEditText(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		initAttrs(context, attrs);
+		initAttrs(context, attrs, R.style.enhancedEditText);
 		init();
 	}
 
 	public EnhancedEditText(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		initAttrs(context, attrs);
+		initAttrs(context, attrs, defStyle);
 		init();
 	}
 
-	private void initAttrs(Context context, AttributeSet attrs) {
-		TypedArray attr = context.obtainStyledAttributes(attrs, R.styleable.EnhancedEditText);
+	private void initAttrs(Context context, AttributeSet attrs, int defStyle) {
+		TypedArray attr = context.obtainStyledAttributes(attrs, R.styleable.EnhancedEditText, defStyle, 0);
 		prefixIcon = attr.getString(R.styleable.EnhancedEditText_prefixIcon);
 		prefixText = attr.getString(R.styleable.EnhancedEditText_prefixText);
 		if (attr.hasValue(R.styleable.EnhancedEditText_prefixColor)) {

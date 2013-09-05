@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- EnhancedEditText -->
+    <style name="enhancedEditText" parent="android:style/Widget.EditText">
+        <item name="prefixColor">#00ff0000</item>
+        <item name="suffixColor">#00ff0000</item>
+    </style>
+
+</resources>
