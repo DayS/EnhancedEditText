@@ -1,6 +1,6 @@
 ![Alt](https://raw.github.com/DayS/EnhancedEditText/master/header.png)
 
-**EnhancedEditText** allows you to simply add [Iconify](https://github.com/JoanZapata/android-iconify) or text on each end of an EditText. It's awesome to get ride of TextView aligned with the component to say what's the purpose of the field, or to show value unit.
+**EnhancedEditText** allows you to simply add [Iconify](https://github.com/JoanZapata/android-iconify) or text on each end of an EditText. It's awesome to get rid of TextView aligned with the component to say what's the purpose of the field, or to show value unit.
 
 # Get started
 
@@ -21,13 +21,14 @@ You just have to add the namespace to be able to use custom attributes, and conf
 
 # Get it
 
-Download the sources, compile and add the following dependency to your project
+Just add the following dependency to your project
 
 ```xml
 <dependency>
     <groupId>fr.dvilleneuve.android</groupId>
     <artifactId>enhanced-edittext</artifactId>
     <version>1.0</version>
+    <type>apklib</type>
 </dependency>
 ```
 
