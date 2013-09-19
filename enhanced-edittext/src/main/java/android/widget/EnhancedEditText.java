@@ -102,6 +102,12 @@ public class EnhancedEditText extends EditText {
 		updateTextSize();
 	}
 
+	@Override
+	public void drawableStateChanged() {
+		super.drawableStateChanged();
+		updateTextColor();
+	}
+
 	public Drawable getPrefixDrawable() {
 		return prefixTextDrawable != null ? prefixTextDrawable : prefixIconDrawable;
 	}

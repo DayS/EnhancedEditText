@@ -53,4 +53,11 @@ public class MainActivity extends Activity {
 			edittext3.setSuffixIcon(null);
 	}
 
+	@Click
+	void buttonToggleEnableClicked() {
+		edittext1.setEnabled(!edittext1.isEnabled());
+		edittext2.setEnabled(!edittext2.isEnabled());
+		edittext3.setEnabled(!edittext3.isEnabled());
+	}
+
 }
