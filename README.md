@@ -27,7 +27,7 @@ Just add the following dependency to your project
 <dependency>
     <groupId>fr.dvilleneuve.android</groupId>
     <artifactId>enhanced-edittext</artifactId>
-    <version>1.0</version>
+    <version>1.2</version>
     <type>apklib</type>
 </dependency>
 ```
