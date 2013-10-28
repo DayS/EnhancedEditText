@@ -5,7 +5,7 @@
     <parent>
         <groupId>fr.dvilleneuve.android</groupId>
         <artifactId>enhanced-edittext-parent</artifactId>
-        <version>1.2-SNAPSHOT</version>
+        <version>1.2</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
