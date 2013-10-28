@@ -20,17 +20,22 @@ package android.widget;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
-import android.content.res.Resources;
 import android.content.res.TypedArray;
+import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.view.View;
 import com.joanzapata.android.iconify.IconDrawable;
 import com.joanzapata.android.iconify.Iconify;
+import fr.dvilleneuve.android.DrawablePosition;
+import fr.dvilleneuve.android.OnClickDrawableListener;
 import fr.dvilleneuve.android.R;
 import fr.dvilleneuve.android.TextDrawable;
 
-public class EnhancedEditText extends EditText {
+public class EnhancedEditText extends EditText implements View.OnTouchListener {
 
+	public static final int DRAWABLE_CLICK_PADDING = 10;
 	private String prefixIcon;
 	private String prefixText;
 	private ColorStateList prefixColors;
@@ -41,6 +46,7 @@ public class EnhancedEditText extends EditText {
 	private IconDrawable prefixIconDrawable;
 	private TextDrawable suffixTextDrawable;
 	private IconDrawable suffixIconDrawable;
+	private OnClickDrawableListener onClickDrawableListener;
 
 	public EnhancedEditText(Context context) {
 		super(context);
@@ -97,6 +103,25 @@ public class EnhancedEditText extends EditText {
 	}
 
 	@Override
+	public boolean onTouch(View view, MotionEvent motionEvent) {
+		if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
+			if (onClickDrawableListener != null) {
+				Drawable prefixDrawable = getPrefixDrawable();
+				if (touchesDrawable(motionEvent, prefixDrawable, DrawablePosition.PREFIX)) {
+					onClickDrawableListener.onClickDrawable(prefixDrawable, DrawablePosition.PREFIX);
+					return true;
+				}
+				Drawable suffixDrawable = getSuffixDrawable();
+				if (touchesDrawable(motionEvent, suffixDrawable, DrawablePosition.SUFFIX)) {
+					onClickDrawableListener.onClickDrawable(suffixDrawable, DrawablePosition.SUFFIX);
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	@Override
 	public void setTextSize(int unit, float size) {
 		super.setTextSize(unit, size);
 		updateTextSize();
@@ -140,7 +165,7 @@ public class EnhancedEditText extends EditText {
 	}
 
 	public void setPrefixColorRes(int prefixColorRes) {
-		setPrefixColorRes(getContext().getResources().getColor(prefixColorRes));
+		setPrefixColor(getContext().getResources().getColor(prefixColorRes));
 	}
 
 	public Drawable getSuffixDrawable() {
@@ -176,6 +201,16 @@ public class EnhancedEditText extends EditText {
 
 	public void setSuffixColorRes(int suffixColorRes) {
 		setSuffixColor(getContext().getResources().getColor(suffixColorRes));
+	}
+
+	public void setOnClickDrawableListener(OnClickDrawableListener onClickDrawableListener) {
+		this.onClickDrawableListener = onClickDrawableListener;
+
+		if (onClickDrawableListener != null) {
+			setOnTouchListener(this);
+		} else {
+			setOnTouchListener(null);
+		}
 	}
 
 	private IconDrawable getIconDrawable(Iconify.IconValue iconValue, ColorStateList colors) {
@@ -223,4 +258,20 @@ public class EnhancedEditText extends EditText {
 		if (suffixTextDrawable != null) suffixTextDrawable.color(suffixColor);
 	}
 
+	private boolean touchesDrawable(MotionEvent motionEvent, Drawable drawable, DrawablePosition drawablePosition) {
+		if (drawable != null) {
+			final int x = (int) motionEvent.getX();
+			final int y = (int) motionEvent.getY();
+			final Rect bounds = drawable.getBounds();
+
+			if (y >= (getHeight() - bounds.height()) / 2 - DRAWABLE_CLICK_PADDING && y <= (getHeight() + bounds.height()) / 2 + DRAWABLE_CLICK_PADDING) {
+				if (drawablePosition == DrawablePosition.PREFIX && x <= bounds.width() + DRAWABLE_CLICK_PADDING) {
+					return true;
+				} else if (drawablePosition == DrawablePosition.SUFFIX && x >= getWidth() - bounds.width() - DRAWABLE_CLICK_PADDING) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 }

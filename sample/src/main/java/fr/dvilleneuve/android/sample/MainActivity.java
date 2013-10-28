@@ -20,15 +20,19 @@ package fr.dvilleneuve.android.sample;
 
 import android.app.Activity;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.widget.EnhancedEditText;
+import android.widget.Toast;
 import com.googlecode.androidannotations.annotations.AfterViews;
 import com.googlecode.androidannotations.annotations.Click;
 import com.googlecode.androidannotations.annotations.EActivity;
 import com.googlecode.androidannotations.annotations.ViewById;
 import com.joanzapata.android.iconify.Iconify;
+import fr.dvilleneuve.android.DrawablePosition;
+import fr.dvilleneuve.android.OnClickDrawableListener;
 
 @EActivity(R.layout.activity_main)
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements OnClickDrawableListener {
 
 	@ViewById
 	EnhancedEditText edittext1, edittext2, edittext3;
@@ -38,6 +42,10 @@ public class MainActivity extends Activity {
 		edittext1.setPrefixColor(Color.LTGRAY);
 		edittext3.setPrefixColors(R.drawable.text_color);
 		edittext3.setSuffixColorRes(R.color.text_color_red);
+
+		edittext1.setOnClickDrawableListener(this);
+		edittext2.setOnClickDrawableListener(this);
+		edittext3.setOnClickDrawableListener(this);
 	}
 
 	@Click
@@ -60,4 +68,15 @@ public class MainActivity extends Activity {
 		edittext3.setEnabled(!edittext3.isEnabled());
 	}
 
+	@Override
+	public void onClickDrawable(Drawable drawable, DrawablePosition position) {
+		switch (position) {
+		case PREFIX:
+			Toast.makeText(this, "Clicked on prefix drawable", Toast.LENGTH_SHORT).show();
+			break;
+		case SUFFIX:
+			Toast.makeText(this, "Clicked on suffix drawable", Toast.LENGTH_SHORT).show();
+			break;
+		}
+	}
 }
