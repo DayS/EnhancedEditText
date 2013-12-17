@@ -1,0 +1,6 @@
+rootProject.name = 'enhanced-edittext-parent'
+include ':enhanced-edittext'
+include ':enhanced-edittext-sample'
+
+project(':enhanced-edittext').projectDir = "$rootDir/enhanced-edittext" as File
+project(':enhanced-edittext-sample').projectDir = "$rootDir/sample" as File
