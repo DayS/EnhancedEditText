@@ -21,3 +21,19 @@ android {
         targetCompatibility JavaVersion.VERSION_1_6
     }
 }
+
+task apklib(type: Zip) {
+    appendix = extension = 'apklib'
+
+    from 'AndroidManifest.xml'
+    into('res') {
+        from 'res'
+    }
+    into('src') {
+        from 'src'
+    }
+}
+
+artifacts {
+    archives apklib
+}
