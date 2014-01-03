@@ -5,8 +5,8 @@ dependencies {
     compile project(':enhanced-edittext')
 
     compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
-    compile 'com.googlecode.androidannotations:androidannotations-api:2.7.1'
-    apt 'com.googlecode.androidannotations:androidannotations:2.7.1'
+    compile 'org.androidannotations:androidannotations-api:3.0'
+    apt 'org.androidannotations:androidannotations:3.0'
 }
 
 android {

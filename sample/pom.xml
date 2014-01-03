@@ -14,7 +14,7 @@
     <name>EnhancedEditText Sample</name>
 
     <properties>
-        <androidannotations.version>2.7.1</androidannotations.version>
+        <androidannotations.version>3.0</androidannotations.version>
         <actionbarsherlock.version>4.3.1</actionbarsherlock.version>
     </properties>
 
@@ -41,13 +41,13 @@
 
         <!-- Android Annotations -->
         <dependency>
-            <groupId>com.googlecode.androidannotations</groupId>
+            <groupId>org.androidannotations</groupId>
             <artifactId>androidannotations</artifactId>
             <version>${androidannotations.version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.googlecode.androidannotations</groupId>
+            <groupId>org.androidannotations</groupId>
             <artifactId>androidannotations-api</artifactId>
             <version>${androidannotations.version}</version>
         </dependency>
