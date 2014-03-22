@@ -19,44 +19,44 @@
 
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:dvilleneuve="http://schemas.android.com/apk/res-auto"
-              android:layout_height="match_parent"
-              android:layout_width="match_parent"
-              android:orientation="vertical"
-              android:padding="10dp">
+			  xmlns:enhancededittext="http://schemas.android.com/apk/res-auto"
+			  android:layout_height="match_parent"
+			  android:layout_width="match_parent"
+			  android:orientation="vertical"
+			  android:padding="10dp">
 
-    <EnhancedEditText
-        android:hint="90"
-        android:id="@+id/edittext1"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        dvilleneuve:prefixIcon="icon_dashboard"
-        dvilleneuve:suffixText="@string/activity_main_edittext1_suffix"/>
+	<EnhancedEditText
+		android:hint="90"
+		android:id="@+id/edittext1"
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		enhancededittext:prefixIcon="fa_tachometer"
+		enhancededittext:suffixText="@string/activity_main_edittext1_suffix" />
 
-    <EnhancedEditText
-        android:hint="90"
-        android:id="@+id/edittext2"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        dvilleneuve:prefixColor="@color/text_color_blue"
-        dvilleneuve:prefixText="@string/activity_main_edittext2_prefix"
-        dvilleneuve:suffixText="@string/activity_main_edittext2_suffix"/>
+	<EnhancedEditText
+		android:hint="90"
+		android:id="@+id/edittext2"
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		enhancededittext:prefixColor="@color/text_color_blue"
+		enhancededittext:prefixText="@string/activity_main_edittext2_prefix"
+		enhancededittext:suffixText="@string/activity_main_edittext2_suffix" />
 
-    <EnhancedEditText
-        android:id="@+id/edittext3"
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"/>
+	<EnhancedEditText
+		android:id="@+id/edittext3"
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent" />
 
-    <Button
-        android:id="@+id/buttonToggleDrawables"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="@string/activity_button_toggleDrawables"/>
+	<Button
+		android:id="@+id/buttonToggleDrawables"
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:text="@string/activity_button_toggleDrawables" />
 
-    <Button
-        android:id="@+id/buttonToggleEnable"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:text="@string/activity_button_toggleEnable"/>
+	<Button
+		android:id="@+id/buttonToggleEnable"
+		android:layout_height="wrap_content"
+		android:layout_width="wrap_content"
+		android:text="@string/activity_button_toggleEnable" />
 
 </LinearLayout>

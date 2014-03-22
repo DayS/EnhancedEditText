@@ -1,12 +1,12 @@
 apply plugin: 'android-library'
 
 dependencies {
-    compile 'com.joanzapata.android:android-iconify:1.0.1'
+    compile 'com.joanzapata.android:android-iconify:1.0.3'
 }
 
 android {
-    compileSdkVersion 17
-    buildToolsVersion '17.0.0'
+    compileSdkVersion 19
+    buildToolsVersion '19.0.3'
 
     sourceSets {
         main {
@@ -20,6 +20,9 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_6
         targetCompatibility JavaVersion.VERSION_1_6
     }
+    lintOptions {
+        abortOnError false
+    }
 }
 
 task apklib(type: Zip) {
@@ -30,7 +33,7 @@ task apklib(type: Zip) {
         from 'res'
     }
     into('src') {
-        from 'src'
+        from 'src/main/java'
     }
 }
 

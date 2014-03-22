@@ -56,7 +56,7 @@ public class MainActivity extends Activity implements OnClickDrawableListener {
 			edittext3.setPrefixText(null);
 
 		if (edittext3.getSuffixDrawable() == null)
-			edittext3.setSuffixIcon(Iconify.IconValue.icon_circle_arrow_right);
+			edittext3.setSuffixIcon(Iconify.IconValue.fa_arrow_circle_right);
 		else
 			edittext3.setSuffixIcon(null);
 	}
