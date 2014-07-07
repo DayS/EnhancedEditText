@@ -27,24 +27,24 @@ import fr.dvilleneuve.android.EnhancedText;
 import fr.dvilleneuve.android.OnClickDrawableListener;
 import fr.dvilleneuve.android.R;
 
-public class EnhancedEditText extends EditText implements EnhancedText {
+public class EnhancedButton extends Button implements EnhancedText {
 
 	private EnhancedTextDelegate enhancedTextDelegate;
 
-	public EnhancedEditText(Context context) {
+	public EnhancedButton(Context context) {
 		super(context);
 		enhancedTextDelegate = new EnhancedTextDelegate(this);
 		enhancedTextDelegate.init();
 	}
 
-	public EnhancedEditText(Context context, AttributeSet attrs) {
+	public EnhancedButton(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		enhancedTextDelegate = new EnhancedTextDelegate(this);
 		enhancedTextDelegate.initAttrs(context, attrs, R.style.enhancedEditText);
 		enhancedTextDelegate.init();
 	}
 
-	public EnhancedEditText(Context context, AttributeSet attrs, int defStyle) {
+	public EnhancedButton(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		enhancedTextDelegate = new EnhancedTextDelegate(this);
 		enhancedTextDelegate.initAttrs(context, attrs, defStyle);
