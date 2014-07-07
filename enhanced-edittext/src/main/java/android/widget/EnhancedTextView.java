@@ -20,260 +20,132 @@ package android.widget;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
-import android.content.res.TypedArray;
-import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.view.MotionEvent;
-import android.view.View;
-
-import com.joanzapata.android.iconify.IconDrawable;
 import com.joanzapata.android.iconify.Iconify;
-
-import fr.dvilleneuve.android.DrawablePosition;
+import fr.dvilleneuve.android.EnhancedText;
 import fr.dvilleneuve.android.OnClickDrawableListener;
 import fr.dvilleneuve.android.R;
-import fr.dvilleneuve.android.TextDrawable;
 
-public class EnhancedTextView extends TextView implements View.OnTouchListener {
+public class EnhancedTextView extends TextView implements EnhancedText {
 
-	public static final int DRAWABLE_CLICK_PADDING = 10;
-	private String prefixIcon;
-	private String prefixText;
-	private ColorStateList prefixColors;
-	private String suffixIcon;
-	private String suffixText;
-	private ColorStateList suffixColors;
-	private TextDrawable prefixTextDrawable;
-	private IconDrawable prefixIconDrawable;
-	private TextDrawable suffixTextDrawable;
-	private IconDrawable suffixIconDrawable;
-	private OnClickDrawableListener onClickDrawableListener;
+	private EnhancedTextDelegate enhancedTextDelegate;
 
 	public EnhancedTextView(Context context) {
 		super(context);
-		init();
+		enhancedTextDelegate = new EnhancedTextDelegate(this);
+		enhancedTextDelegate.init();
 	}
 
 	public EnhancedTextView(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		initAttrs(context, attrs, R.style.enhancedEditText);
-		init();
+		enhancedTextDelegate = new EnhancedTextDelegate(this);
+		enhancedTextDelegate.initAttrs(context, attrs, R.style.enhancedEditText);
+		enhancedTextDelegate.init();
 	}
 
 	public EnhancedTextView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
-		initAttrs(context, attrs, defStyle);
-		init();
-	}
-
-	private void initAttrs(Context context, AttributeSet attrs, int defStyle) {
-		TypedArray attr = context.obtainStyledAttributes(attrs, R.styleable.EnhancedEditText, defStyle, 0);
-		prefixIcon = attr.getString(R.styleable.EnhancedEditText_prefixIcon);
-		prefixText = attr.getString(R.styleable.EnhancedEditText_prefixText);
-		if (attr.hasValue(R.styleable.EnhancedEditText_prefixColor)) {
-			prefixColors = attr.getColorStateList(R.styleable.EnhancedEditText_prefixColor);
-		} else {
-			prefixColors = getTextColors();
-		}
-
-		suffixIcon = attr.getString(R.styleable.EnhancedEditText_suffixIcon);
-		suffixText = attr.getString(R.styleable.EnhancedEditText_suffixText);
-		if (attr.hasValue(R.styleable.EnhancedEditText_suffixColor)) {
-			suffixColors = attr.getColorStateList(R.styleable.EnhancedEditText_suffixColor);
-		} else {
-			suffixColors = getTextColors();
-		}
-		attr.recycle();
-	}
-
-	private void init() {
-		setCompoundDrawablePadding(16);
-
-		if (!isInEditMode()) {
-			if (prefixIcon != null) {
-				setPrefixIcon(Iconify.IconValue.valueOf(prefixIcon));
-			}
-			if (suffixIcon != null) {
-				setSuffixIcon(Iconify.IconValue.valueOf(suffixIcon));
-			}
-		}
-		setPrefixText(prefixText);
-		setSuffixText(suffixText);
-
-		updateTextColor();
-	}
-
-	@Override
-	public boolean onTouch(View view, MotionEvent motionEvent) {
-		if (motionEvent.getAction() == MotionEvent.ACTION_UP) {
-			if (onClickDrawableListener != null) {
-				Drawable prefixDrawable = getPrefixDrawable();
-				if (touchesDrawable(motionEvent, prefixDrawable, DrawablePosition.PREFIX)) {
-					onClickDrawableListener.onClickDrawable(prefixDrawable, DrawablePosition.PREFIX);
-					return true;
-				}
-				Drawable suffixDrawable = getSuffixDrawable();
-				if (touchesDrawable(motionEvent, suffixDrawable, DrawablePosition.SUFFIX)) {
-					onClickDrawableListener.onClickDrawable(suffixDrawable, DrawablePosition.SUFFIX);
-					return true;
-				}
-			}
-		}
-		return false;
+		enhancedTextDelegate = new EnhancedTextDelegate(this);
+		enhancedTextDelegate.initAttrs(context, attrs, defStyle);
+		enhancedTextDelegate.init();
 	}
 
 	@Override
 	public void setTextSize(int unit, float size) {
 		super.setTextSize(unit, size);
-		updateTextSize();
+		enhancedTextDelegate.updateTextSize();
 	}
 
 	@Override
 	public void drawableStateChanged() {
 		super.drawableStateChanged();
-		updateTextColor();
+		enhancedTextDelegate.updateTextColor();
 	}
 
+	@Override
 	public Drawable getPrefixDrawable() {
-		return prefixTextDrawable != null ? prefixTextDrawable : prefixIconDrawable;
+		return enhancedTextDelegate.getPrefixDrawable();
 	}
 
+	@Override
 	public void setPrefixIcon(Iconify.IconValue prefixIcon) {
-		prefixIconDrawable = getIconDrawable(prefixIcon, prefixColors);
-		updateCompoundDrawables();
+		enhancedTextDelegate.setPrefixIcon(prefixIcon);
 	}
 
+	@Override
 	public void setPrefixText(String prefix) {
-		prefixTextDrawable = getTextDrawable(prefix, prefixColors);
-		updateCompoundDrawables();
+		enhancedTextDelegate.setPrefixText(prefix);
 	}
 
+	@Override
 	public void setPrefixTextRes(int prefix) {
-		setPrefixText(getContext().getString(prefix));
+		enhancedTextDelegate.setPrefixTextRes(prefix);
 	}
 
+	@Override
 	public void setPrefixColors(ColorStateList prefixColors) {
-		this.prefixColors = prefixColors;
-		updateTextColor();
+		enhancedTextDelegate.setPrefixColors(prefixColors);
 	}
 
+	@Override
 	public void setPrefixColors(int prefixColorsRes) {
-		setPrefixColors(getContext().getResources().getColorStateList(prefixColorsRes));
+		enhancedTextDelegate.setPrefixColors(prefixColorsRes);
 	}
 
+	@Override
 	public void setPrefixColor(int prefixColor) {
-		setPrefixColors(ColorStateList.valueOf(prefixColor));
+		enhancedTextDelegate.setPrefixColor(prefixColor);
 	}
 
+	@Override
 	public void setPrefixColorRes(int prefixColorRes) {
-		setPrefixColor(getContext().getResources().getColor(prefixColorRes));
+		enhancedTextDelegate.setPrefixColorRes(prefixColorRes);
 	}
 
+	@Override
 	public Drawable getSuffixDrawable() {
-		return suffixTextDrawable != null ? suffixTextDrawable : suffixIconDrawable;
+		return enhancedTextDelegate.getSuffixDrawable();
 	}
 
+	@Override
 	public void setSuffixIcon(Iconify.IconValue suffixIcon) {
-		suffixIconDrawable = getIconDrawable(suffixIcon, suffixColors);
-		updateCompoundDrawables();
+		enhancedTextDelegate.setSuffixIcon(suffixIcon);
 	}
 
+	@Override
 	public void setSuffixText(String suffix) {
-		suffixTextDrawable = getTextDrawable(suffix, suffixColors);
-		updateCompoundDrawables();
+		enhancedTextDelegate.setSuffixText(suffix);
 	}
 
+	@Override
 	public void setSuffixTextRes(int suffixRes) {
-		setSuffixText(getContext().getString(suffixRes));
+		enhancedTextDelegate.setSuffixTextRes(suffixRes);
 	}
 
+	@Override
 	public void setSuffixColors(ColorStateList suffixColors) {
-		this.suffixColors = suffixColors;
-		updateTextColor();
+		enhancedTextDelegate.setSuffixColors(suffixColors);
 	}
 
+	@Override
 	public void setSuffixColors(int suffixColorsRes) {
-		setSuffixColors(getContext().getResources().getColorStateList(suffixColorsRes));
+		enhancedTextDelegate.setSuffixColors(suffixColorsRes);
 	}
 
+	@Override
 	public void setSuffixColor(int suffixColor) {
-		setSuffixColors(ColorStateList.valueOf(suffixColor));
+		enhancedTextDelegate.setSuffixColor(suffixColor);
 	}
 
+	@Override
 	public void setSuffixColorRes(int suffixColorRes) {
-		setSuffixColor(getContext().getResources().getColor(suffixColorRes));
+		enhancedTextDelegate.setSuffixColorRes(suffixColorRes);
 	}
 
+	@Override
 	public void setOnClickDrawableListener(OnClickDrawableListener onClickDrawableListener) {
-		this.onClickDrawableListener = onClickDrawableListener;
-
-		if (onClickDrawableListener != null) {
-			setOnTouchListener(this);
-		} else {
-			setOnTouchListener(null);
-		}
+		enhancedTextDelegate.setOnClickDrawableListener(onClickDrawableListener);
 	}
 
-	private IconDrawable getIconDrawable(Iconify.IconValue iconValue, ColorStateList colors) {
-		if (isInEditMode()) return null;
-		if (iconValue == null) return null;
-
-		return new IconDrawable(getContext(), iconValue) //
-				.sizePx((int) getTextSize()) //
-				.color(getCurrentDrawablColor(colors));
-	}
-
-	private TextDrawable getTextDrawable(String value, ColorStateList colors) {
-		if (value == null || value.isEmpty()) return null;
-
-		return new TextDrawable(getContext(), value) //
-				.sizePx(getTextSize()).typeface(getTypeface()) //
-				.color(getCurrentDrawablColor(colors));
-	}
-
-	private int getCurrentDrawablColor(ColorStateList colors) {
-		return colors.getColorForState(getDrawableState(), getCurrentTextColor());
-	}
-
-	private void updateCompoundDrawables() {
-		Drawable leftDrawable = prefixIconDrawable != null ? prefixIconDrawable : prefixTextDrawable;
-		Drawable rightDrawable = suffixIconDrawable != null ? suffixIconDrawable : suffixTextDrawable;
-		setCompoundDrawablesWithIntrinsicBounds(leftDrawable, null, rightDrawable, null);
-	}
-
-	private void updateTextSize() {
-		float textSize = getTextSize();
-		if (prefixIconDrawable != null) prefixIconDrawable.sizePx((int) textSize);
-		if (prefixTextDrawable != null) prefixTextDrawable.sizePx((int) textSize);
-		if (suffixIconDrawable != null) suffixIconDrawable.sizePx((int) textSize);
-		if (suffixTextDrawable != null) suffixTextDrawable.sizePx((int) textSize);
-	}
-
-	private void updateTextColor() {
-		int prefixColor = getCurrentDrawablColor(prefixColors);
-		if (prefixIconDrawable != null) prefixIconDrawable.color(prefixColor);
-		if (prefixTextDrawable != null) prefixTextDrawable.color(prefixColor);
-
-		int suffixColor = getCurrentDrawablColor(suffixColors);
-		if (suffixIconDrawable != null) suffixIconDrawable.color(suffixColor);
-		if (suffixTextDrawable != null) suffixTextDrawable.color(suffixColor);
-	}
-
-	private boolean touchesDrawable(MotionEvent motionEvent, Drawable drawable, DrawablePosition drawablePosition) {
-		if (drawable != null) {
-			final int x = (int) motionEvent.getX();
-			final int y = (int) motionEvent.getY();
-			final Rect bounds = drawable.getBounds();
-
-			if (y >= (getHeight() - bounds.height()) / 2 - DRAWABLE_CLICK_PADDING && y <= (getHeight() + bounds.height()) / 2 + DRAWABLE_CLICK_PADDING) {
-				if (drawablePosition == DrawablePosition.PREFIX && x <= bounds.width() + DRAWABLE_CLICK_PADDING) {
-					return true;
-				} else if (drawablePosition == DrawablePosition.SUFFIX && x >= getWidth() - bounds.width() - DRAWABLE_CLICK_PADDING) {
-					return true;
-				}
-			}
-		}
-		return false;
-	}
 }
