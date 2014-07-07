@@ -20,12 +20,13 @@
 -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 			  xmlns:enhancededittext="http://schemas.android.com/apk/res-auto"
+			  xmlns:tools="http://schemas.android.com/tools"
 			  android:layout_height="match_parent"
 			  android:layout_width="match_parent"
 			  android:orientation="vertical"
 			  android:padding="10dp">
 
-	<EnhancedEditText
+	<android.widget.EnhancedEditText
 		android:hint="90"
 		android:id="@+id/edittext1"
 		android:layout_height="wrap_content"
@@ -33,7 +34,7 @@
 		enhancededittext:prefixIcon="fa_tachometer"
 		enhancededittext:suffixText="@string/activity_main_edittext1_suffix" />
 
-	<EnhancedEditText
+	<android.widget.EnhancedEditText
 		android:hint="90"
 		android:id="@+id/edittext2"
 		android:layout_height="wrap_content"
@@ -42,21 +43,45 @@
 		enhancededittext:prefixText="@string/activity_main_edittext2_prefix"
 		enhancededittext:suffixText="@string/activity_main_edittext2_suffix" />
 
-	<EnhancedEditText
+	<android.widget.EnhancedEditText
 		android:id="@+id/edittext3"
 		android:layout_height="wrap_content"
 		android:layout_width="match_parent" />
 
-	<Button
+	<android.widget.EnhancedTextView
+		android:id="@+id/textview1"
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:layout_marginTop="20dp"
+		android:text="Simple enhanced Textview"
+		tools:ignore="HardcodedText" />
+
+	<android.widget.EnhancedTextView
+		android:id="@+id/textview2"
+		android:layout_height="wrap_content"
+		android:layout_width="match_parent"
+		android:text="Enhanced Textview"
+		enhancededittext:prefixColor="@color/text_color_blue"
+		enhancededittext:prefixIcon="fa_info"
+		enhancededittext:suffixText="@string/activity_main_edittext2_suffix"
+		tools:ignore="HardcodedText" />
+
+	<android.widget.EnhancedButton
 		android:id="@+id/buttonToggleDrawables"
 		android:layout_height="wrap_content"
 		android:layout_width="wrap_content"
-		android:text="@string/activity_button_toggleDrawables" />
+		android:layout_marginTop="20dp"
+		android:layout_gravity="center_horizontal"
+		android:text="@string/activity_button_toggleDrawables"
+		enhancededittext:prefixColor="@color/text_color_red"
+		enhancededittext:prefixIcon="fa_picture_o" />
 
-	<Button
+	<android.widget.EnhancedButton
 		android:id="@+id/buttonToggleEnable"
 		android:layout_height="wrap_content"
 		android:layout_width="wrap_content"
-		android:text="@string/activity_button_toggleEnable" />
+		android:layout_gravity="center_horizontal"
+		android:text="@string/activity_button_toggleEnable"
+		enhancededittext:suffixIcon="fa_refresh" />
 
 </LinearLayout>
