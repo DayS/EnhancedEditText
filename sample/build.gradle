@@ -5,6 +5,7 @@ dependencies {
 
     compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
     compile 'org.androidannotations:androidannotations-api:3.0.1'
+    compile 'com.joanzapata.iconify:android-iconify-fontawesome:2.0.6'
     provided 'org.androidannotations:androidannotations:3.0.1'
 }
 
