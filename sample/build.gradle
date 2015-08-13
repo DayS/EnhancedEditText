@@ -1,12 +1,11 @@
-apply plugin: 'android'
-apply plugin: 'android-apt'
+apply plugin: 'com.android.application'
 
 dependencies {
     compile project(':enhanced-edittext')
 
     compile 'com.actionbarsherlock:actionbarsherlock:4.4.0@aar'
     compile 'org.androidannotations:androidannotations-api:3.0.1'
-    apt 'org.androidannotations:androidannotations:3.0.1'
+    provided 'org.androidannotations:androidannotations:3.0.1'
 }
 
 android {
@@ -27,19 +26,5 @@ android {
     }
     lintOptions {
         abortOnError false
-    }
-}
-
-apt {
-    arguments {
-        androidManifestFile variant.processResources.manifestFile
-        resourcePackageName 'fr.dvilleneuve.android.sample'
-
-        // If you're using Android NBS flavors you should use the following line instead of hard-coded packageName
-        // resourcePackageName android.defaultConfig.packageName
-
-        // You can set optional annotation processing options here, like these commented options:
-        // logLevel 'INFO'
-        // logFile '/var/log/aa.log'
     }
 }
