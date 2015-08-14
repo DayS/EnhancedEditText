@@ -1,8 +1,8 @@
-apply plugin: 'android-library'
+apply plugin: 'com.android.library'
 apply plugin: 'release'
 
 dependencies {
-    compile 'com.joanzapata.android:android-iconify:1.0.3'
+    compile 'com.joanzapata.iconify:android-iconify:2.0.6'
 }
 
 android {

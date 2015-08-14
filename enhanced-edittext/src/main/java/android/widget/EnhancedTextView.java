@@ -22,7 +22,7 @@ import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import com.joanzapata.android.iconify.Iconify;
+import com.joanzapata.iconify.Icon;
 import fr.dvilleneuve.android.EnhancedText;
 import fr.dvilleneuve.android.OnClickDrawableListener;
 import fr.dvilleneuve.android.R;
@@ -69,7 +69,7 @@ public class EnhancedTextView extends TextView implements EnhancedText {
 	}
 
 	@Override
-	public void setPrefixIcon(Iconify.IconValue prefixIcon) {
+	public void setPrefixIcon(Icon prefixIcon) {
 		enhancedTextDelegate.setPrefixIcon(prefixIcon);
 	}
 
@@ -109,7 +109,7 @@ public class EnhancedTextView extends TextView implements EnhancedText {
 	}
 
 	@Override
-	public void setSuffixIcon(Iconify.IconValue suffixIcon) {
+	public void setSuffixIcon(Icon suffixIcon) {
 		enhancedTextDelegate.setSuffixIcon(suffixIcon);
 	}
 

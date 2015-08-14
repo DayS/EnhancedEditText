@@ -23,7 +23,7 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.widget.EnhancedEditText;
 import android.widget.Toast;
-import com.joanzapata.android.iconify.Iconify;
+import com.joanzapata.iconify.fonts.FontAwesomeIcons;
 import fr.dvilleneuve.android.DrawablePosition;
 import fr.dvilleneuve.android.OnClickDrawableListener;
 import org.androidannotations.annotations.AfterViews;
@@ -56,7 +56,7 @@ public class MainActivity extends Activity implements OnClickDrawableListener {
 			edittext3.setPrefixText(null);
 
 		if (edittext3.getSuffixDrawable() == null)
-			edittext3.setSuffixIcon(Iconify.IconValue.fa_arrow_circle_right);
+			edittext3.setSuffixIcon(FontAwesomeIcons.fa_arrow_circle_right);
 		else
 			edittext3.setSuffixIcon(null);
 	}

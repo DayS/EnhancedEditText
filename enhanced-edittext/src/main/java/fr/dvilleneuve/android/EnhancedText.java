@@ -20,13 +20,13 @@ package fr.dvilleneuve.android;
 
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
-import com.joanzapata.android.iconify.Iconify;
+import com.joanzapata.iconify.Icon;
 
 public interface EnhancedText {
 
 	Drawable getPrefixDrawable();
 
-	void setPrefixIcon(Iconify.IconValue prefixIcon);
+	void setPrefixIcon(Icon prefixIcon);
 
 	void setPrefixText(String prefix);
 
@@ -42,7 +42,7 @@ public interface EnhancedText {
 
 	Drawable getSuffixDrawable();
 
-	void setSuffixIcon(Iconify.IconValue suffixIcon);
+	void setSuffixIcon(Icon suffixIcon);
 
 	void setSuffixText(String suffix);
 

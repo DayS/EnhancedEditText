@@ -31,7 +31,7 @@
 		android:id="@+id/edittext1"
 		android:layout_height="wrap_content"
 		android:layout_width="match_parent"
-		enhancededittext:prefixIcon="fa_tachometer"
+		enhancededittext:prefixIcon="fa-tachometer"
 		enhancededittext:suffixText="@string/activity_main_edittext1_suffix" />
 
 	<android.widget.EnhancedEditText
@@ -62,7 +62,7 @@
 		android:layout_width="match_parent"
 		android:text="Enhanced Textview"
 		enhancededittext:prefixColor="@color/text_color_blue"
-		enhancededittext:prefixIcon="fa_info"
+		enhancededittext:prefixIcon="fa-info"
 		enhancededittext:suffixText="@string/activity_main_edittext2_suffix"
 		tools:ignore="HardcodedText" />
 
@@ -74,7 +74,7 @@
 		android:layout_gravity="center_horizontal"
 		android:text="@string/activity_button_toggleDrawables"
 		enhancededittext:prefixColor="@color/text_color_red"
-		enhancededittext:prefixIcon="fa_picture_o" />
+		enhancededittext:prefixIcon="fa-picture-o" />
 
 	<android.widget.EnhancedButton
 		android:id="@+id/buttonToggleEnable"
@@ -82,6 +82,6 @@
 		android:layout_width="wrap_content"
 		android:layout_gravity="center_horizontal"
 		android:text="@string/activity_button_toggleEnable"
-		enhancededittext:suffixIcon="fa_refresh" />
+		enhancededittext:suffixIcon="fa-refresh" />
 
 </LinearLayout>

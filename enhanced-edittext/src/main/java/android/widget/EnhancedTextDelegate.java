@@ -26,8 +26,8 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
-import com.joanzapata.android.iconify.IconDrawable;
-import com.joanzapata.android.iconify.Iconify;
+import com.joanzapata.iconify.IconDrawable;
+import com.joanzapata.iconify.Icon;
 import fr.dvilleneuve.android.DrawablePosition;
 import fr.dvilleneuve.android.EnhancedText;
 import fr.dvilleneuve.android.OnClickDrawableListener;
@@ -81,10 +81,10 @@ public class EnhancedTextDelegate implements View.OnTouchListener, EnhancedText 
 
 		if (!textView.isInEditMode()) {
 			if (prefixIcon != null) {
-				setPrefixIcon(Iconify.IconValue.valueOf(prefixIcon));
+				setPrefixIconDrawable(new IconDrawable(textView.getContext(), prefixIcon).sizePx((int)textView.getTextSize()));
 			}
 			if (suffixIcon != null) {
-				setSuffixIcon(Iconify.IconValue.valueOf(suffixIcon));
+				setSuffixIconDrawable(new IconDrawable(textView.getContext(), suffixIcon).sizePx((int)textView.getTextSize()));
 			}
 		}
 		setPrefixText(prefixText);
@@ -118,8 +118,12 @@ public class EnhancedTextDelegate implements View.OnTouchListener, EnhancedText 
 	}
 
 	@Override
-	public void setPrefixIcon(Iconify.IconValue prefixIcon) {
-		prefixIconDrawable = getIconDrawable(prefixIcon, prefixColors);
+	public void setPrefixIcon(Icon prefixIcon) {
+		setPrefixIconDrawable(getIconDrawable(prefixIcon, prefixColors));
+	}
+
+	private void setPrefixIconDrawable(IconDrawable iconDrawable) {
+		prefixIconDrawable = iconDrawable;
 		updateCompoundDrawables();
 	}
 
@@ -161,8 +165,12 @@ public class EnhancedTextDelegate implements View.OnTouchListener, EnhancedText 
 	}
 
 	@Override
-	public void setSuffixIcon(Iconify.IconValue suffixIcon) {
-		suffixIconDrawable = getIconDrawable(suffixIcon, suffixColors);
+	public void setSuffixIcon(Icon suffixIcon) {
+		setSuffixIconDrawable(getIconDrawable(suffixIcon, suffixColors));
+	}
+
+	private void setSuffixIconDrawable(IconDrawable iconDrawable) {
+		suffixIconDrawable = iconDrawable;
 		updateCompoundDrawables();
 	}
 
@@ -209,7 +217,7 @@ public class EnhancedTextDelegate implements View.OnTouchListener, EnhancedText 
 		}
 	}
 
-	protected IconDrawable getIconDrawable(Iconify.IconValue iconValue, ColorStateList colors) {
+	protected IconDrawable getIconDrawable(Icon iconValue, ColorStateList colors) {
 		if (textView.isInEditMode()) return null;
 		if (iconValue == null) return null;
 

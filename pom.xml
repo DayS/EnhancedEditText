@@ -55,7 +55,7 @@
 
         <android.version>4.3_r1</android.version>
         <android.platform>18</android.platform>
-        <iconify.version>1.0.1</iconify.version>
+        <iconify.version>2.0.6</iconify.version>
 
         <!-- Plugins -->
         <android-maven.version>3.6.1</android-maven.version>
@@ -74,7 +74,7 @@
 
             <!-- Iconify -->
             <dependency>
-                <groupId>com.joanzapata.android</groupId>
+                <groupId>com.joanzapata.iconify</groupId>
                 <artifactId>android-iconify</artifactId>
                 <version>${iconify.version}</version>
             </dependency>
