@@ -16,35 +16,37 @@
  * It uses Iconify by Joan Zapata, licensed under Apache License version 2, which is compatible
  * with this library's license.
  */
-package android.widget;
+package fr.dvilleneuve.android.widget;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.widget.EditText;
+
 import com.joanzapata.iconify.Icon;
 import fr.dvilleneuve.android.EnhancedText;
 import fr.dvilleneuve.android.OnClickDrawableListener;
 import fr.dvilleneuve.android.R;
 
-public class EnhancedTextView extends TextView implements EnhancedText {
+public class EnhancedEditText extends EditText implements EnhancedText {
 
 	private EnhancedTextDelegate enhancedTextDelegate;
 
-	public EnhancedTextView(Context context) {
+	public EnhancedEditText(Context context) {
 		super(context);
 		enhancedTextDelegate = new EnhancedTextDelegate(this);
 		enhancedTextDelegate.init();
 	}
 
-	public EnhancedTextView(Context context, AttributeSet attrs) {
+	public EnhancedEditText(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		enhancedTextDelegate = new EnhancedTextDelegate(this);
 		enhancedTextDelegate.initAttrs(context, attrs, R.style.enhancedEditText);
 		enhancedTextDelegate.init();
 	}
 
-	public EnhancedTextView(Context context, AttributeSet attrs, int defStyle) {
+	public EnhancedEditText(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		enhancedTextDelegate = new EnhancedTextDelegate(this);
 		enhancedTextDelegate.initAttrs(context, attrs, defStyle);

@@ -16,7 +16,7 @@
  * It uses Iconify by Joan Zapata, licensed under Apache License version 2, which is compatible
  * with this library's license.
  */
-package android.widget;
+package fr.dvilleneuve.android.widget;
 
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -26,6 +26,8 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.TextView;
+
 import com.joanzapata.iconify.IconDrawable;
 import com.joanzapata.iconify.Icon;
 import fr.dvilleneuve.android.DrawablePosition;

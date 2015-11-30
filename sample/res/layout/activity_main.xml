@@ -26,7 +26,7 @@
 			  android:orientation="vertical"
 			  android:padding="10dp">
 
-	<android.widget.EnhancedEditText
+	<fr.dvilleneuve.android.widget.EnhancedEditText
 		android:hint="90"
 		android:id="@+id/edittext1"
 		android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
 		enhancededittext:prefixIcon="fa-tachometer"
 		enhancededittext:suffixText="@string/activity_main_edittext1_suffix" />
 
-	<android.widget.EnhancedEditText
+	<fr.dvilleneuve.android.widget.EnhancedEditText
 		android:hint="90"
 		android:id="@+id/edittext2"
 		android:layout_height="wrap_content"
@@ -43,12 +43,12 @@
 		enhancededittext:prefixText="@string/activity_main_edittext2_prefix"
 		enhancededittext:suffixText="@string/activity_main_edittext2_suffix" />
 
-	<android.widget.EnhancedEditText
+	<fr.dvilleneuve.android.widget.EnhancedEditText
 		android:id="@+id/edittext3"
 		android:layout_height="wrap_content"
 		android:layout_width="match_parent" />
 
-	<android.widget.EnhancedTextView
+	<fr.dvilleneuve.android.widget.EnhancedTextView
 		android:id="@+id/textview1"
 		android:layout_height="wrap_content"
 		android:layout_width="match_parent"
@@ -56,7 +56,7 @@
 		android:text="Simple enhanced Textview"
 		tools:ignore="HardcodedText" />
 
-	<android.widget.EnhancedTextView
+	<fr.dvilleneuve.android.widget.EnhancedTextView
 		android:id="@+id/textview2"
 		android:layout_height="wrap_content"
 		android:layout_width="match_parent"
@@ -66,7 +66,7 @@
 		enhancededittext:suffixText="@string/activity_main_edittext2_suffix"
 		tools:ignore="HardcodedText" />
 
-	<android.widget.EnhancedButton
+	<fr.dvilleneuve.android.widget.EnhancedButton
 		android:id="@+id/buttonToggleDrawables"
 		android:layout_height="wrap_content"
 		android:layout_width="wrap_content"
@@ -76,7 +76,7 @@
 		enhancededittext:prefixColor="@color/text_color_red"
 		enhancededittext:prefixIcon="fa-picture-o" />
 
-	<android.widget.EnhancedButton
+	<fr.dvilleneuve.android.widget.EnhancedButton
 		android:id="@+id/buttonToggleEnable"
 		android:layout_height="wrap_content"
 		android:layout_width="wrap_content"
