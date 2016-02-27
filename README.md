@@ -23,13 +23,17 @@ You just have to add the namespace to be able to use custom attributes, and conf
 
 Just add the following dependency to your project
 
-```xml
-<dependency>
-    <groupId>fr.dvilleneuve.android</groupId>
-    <artifactId>enhanced-edittext</artifactId>
-    <version>1.2</version>
-    <type>apklib</type>
-</dependency>
+```
+	repositories {
+        // ...
+        maven { url "https://jitpack.io" }
+    }
+```
+
+```
+	dependencies {
+	        compile 'com.github.DayS:EnhancedEditText:-SNAPSHOT'
+	}
 ```
 
 # License

@@ -21,7 +21,7 @@ package fr.dvilleneuve.android.sample;
 import android.app.Activity;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
-import android.widget.EnhancedEditText;
+import fr.dvilleneuve.android.widget.EnhancedEditText;
 import android.widget.Toast;
 import com.joanzapata.iconify.fonts.FontAwesomeIcons;
 import fr.dvilleneuve.android.DrawablePosition;
